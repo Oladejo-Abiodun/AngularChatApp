@@ -1,0 +1,41 @@
+
+
+
+<div class="container mt-5 mr-5">
+    <div class="row">
+        <div class="card col-12 col-md-3 offset-1 bg-danger p-2" style="height: 350px;">
+            <h3 class="text-white p-3">Sign In</h3>
+            <p class=" mt-3 text-white" id="text"><small>Welcome to .......
+                <br> Busta's ChatApp</small></p>
+                <p class=" text-white ml-5 pr-5">We give life the best reunion 
+                    for easy connectivity with friends and
+                    family
+                </p>
+        </div>
+
+        <div class="card col-12 col-md-6 bg-shadow p-2">
+            <form class="">
+                <div class="input-group mb-3 input-group-sm">
+                    <mat-form-field appearance="legacy" class="col-12">
+                        <mat-label>USERNAME OR EMAIL</mat-label>
+                        <input matInput [(ngModel)]="username" name="username">
+                      </mat-form-field>
+                     
+                        
+                      <mat-form-field appearance="legacy" class="col-12">
+                        <mat-label>PASSWORD</mat-label>
+                        <input matInput [(ngModel)]="password" name="password">
+                      </mat-form-field>
+                      <button class="btn btn-warning ml-2" (click)="signup()" mat-raised-button>SIGN UP</button>
+                          <span class="pl-5 pr-5">or</span>
+                      <button class="btn btn-warning ml-2" (click)="signin()" mat-raised-button>SIGN IN</button>
+                   </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+

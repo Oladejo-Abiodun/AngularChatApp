@@ -1,0 +1,123 @@
+
+  <div class="container-fluid bg-light">
+    <mat-drawer-container [hasBackdrop]="true">
+<mat-drawer #drawer [mode]="" style="width: 250px; margin-left: 90px;">
+    <span><img style="height:100px;width:100px; border-radius:100%;"
+        src="{{getusers.img}}"></span>
+</mat-drawer>
+<mat-drawer-content>
+  
+        <div class="row bg-warning" style="height: 150px; z-index: -1;">
+    
+        </div>
+        <div class="row" style="margin-top: -100px; z-index: 100">
+            <div class="col-10 shadow-sm mx-auto bg-white" style="height: 90vh;">
+                <div class="bg-info" style="height: 50px">
+    
+                    <div class="row" (click)="drawer.toggle()">
+                        <div class="col-4 mb-4">
+                            <!-- <div style="height: 30px; width: 30px; 
+                            background-color: #eee; border-radius: 100%; margin-top:6px;">
+                    
+                            </div> -->
+                        </div>
+                    
+                        <div style="margin-left:-370px; margin-top:10px;">
+                            <span><img style="height:30px;width:30px; border-radius:100%;"
+                                src="{{getusers.img}}"></span> 
+                         {{getusers.username.toUpperCase()}}
+                        </div>
+                        
+                        <div class="col-4 mb-4 mt-5">
+                            <div>
+            <!-- <span><img style="height:30px;width:30px; border-radius:100%;" src="assets/pics/bike.jpg"></span> -->
+                             </div>
+                        </div>
+                           <span style="margin-left:83px;margin-top:10px;">
+                            <span><img style="height:30px;width:30px; border-radius:100%;"
+                                src="{{selected.img}}"></span>
+                            {{selected.username.toUpperCase()}}
+                        </span>
+                </div>  
+                
+                <div class="row">
+                    <div class="col-4">
+                       
+                        <input placeholder="search" [(ngModel)]="filterItem">
+                        <div *ngFor="let i=index; let list of collect | search:filterItem">
+                            <div class="row">
+                                <div class="col-4">
+                                    <!-- <div style="height: 30px; width: 30px; 
+                                    background-color: #eee; border-radius: 100%;"></div> -->
+                                </div>
+                                <div class="col-8" style="margin-left: -141px;">
+                                    <div (click)="details(i,list.number,list.username, list.img)" 
+                                    class="border-bottom mb-4">
+                                    <span><img style="height:30px;width:30px; border-radius:100%;"
+                                       src="{{list.img}}"></span>   
+                               {{list.username.toUpperCase()}} <br>
+                               <span>{{list.message}}</span>
+                            </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                   
+                    </div>
+                    <div class="col-8 bg-basic" style="height:82vh; overflow: auto;">
+                        <div class="row">
+                            <div class="col-12">
+                                <app-child></app-child>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 mb-2" *ngFor="let i =index; let msg of msg">
+                                <mat-card class="bg-success d-inline-block float-right" *ngIf="msg.check">
+                                    <span class="read"></span>
+                                    <mat-card-content>
+                                        {{msg.message}}<br>
+                                        <span style = "float:right">{{msg.time}}</span><br>
+                                        <span style="font-size:12px; float: right">
+                                            {{msg.sender}}
+                                        </span>
+                                    </mat-card-content>
+                                    <span class= "del" (click)="delete(i)"></span>
+                                </mat-card>
+                                <mat-card class="bg-danger d-inline-block float-left" *ngIf="!msg.check">
+                                    <span class="read"></span>
+                                    <mat-card-content>
+                                        {{msg.message}}<br>
+                                        <span style = "float:right">{{msg.time}}</span><br>
+                                        <span style="font-size:12px; float: right">
+                                            {{msg.sender}}
+                                        </span>
+                                    </mat-card-content>
+                                    <span class="del" (click)="delete(i)"></span>
+                                </mat-card>
+                                <br>
+                            </div>
+                            <div class="offset-7 col-5 mb-4">
+                            </div>
+                        </div>
+                            <div class="row fixed-bottom">
+                                <div class="col-10" style="margin-left: 300px;">
+                                    <div class="form-group col-6">
+                                        <input type="text" [(ngModel)]="message" name="message" 
+                                        class="form-control" placeholder="Type Messsage......" 
+                                    >
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-2" style="margin-left: -400px;">
+                                     <button class="btn btn-success" (click)="send()"
+                              >Send</button> 
+                                </div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</mat-drawer-content>
+</mat-drawer-container>  
+</div>
